@@ -56,7 +56,7 @@ class Test(BaseTest):
         first_name_field.send_keys(get_first_name())
         last_name_field.send_keys(get_last_name())
 
-        submit_form.submit()
+        submit_form.click()
 
 
         self.verify_label('Welcome')
@@ -77,7 +77,7 @@ class Test(BaseTest):
         password_field.send_keys(get_password())
         email_field.send_keys(get_email())
 
-        submit_form.submit()
+        submit_form.click()
 
         self.verify_label('Welcome')
         self.sign_out()
@@ -100,7 +100,7 @@ class Test(BaseTest):
         password_field.send_keys(get_password())
         email_field.send_keys(get_email())
 
-        submit_form.submit()
+        submit_form.click()
 
         # sign out
         self.sign_out()
@@ -155,7 +155,7 @@ class Test(BaseTest):
         first_name_field.send_keys(get_first_name())
         last_name_field.send_keys(get_last_name())
 
-        submit_form.submit()
+        submit_form.click()
 
         if self.driver.find_element_by_class_name('ErrorMessage'):
             self.passed('Valid error message class on invalid signup')

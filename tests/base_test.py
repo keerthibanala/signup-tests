@@ -20,7 +20,7 @@ class BaseTest(object):
 
     def load_page(self):
         self.driver.get(self.base_url)
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
         self.wait.until(EC.presence_of_all_elements_located)
 
     def get_title(self):
