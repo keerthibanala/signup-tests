@@ -4,9 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from utils.test_data_generator import *
 import sys
 import time
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class Test(BaseTest):
@@ -302,7 +300,8 @@ class Test(BaseTest):
 
         self.driver.switch_to_window(self.get_window())
 
-        time.sleep(2)
+        time.sleep(5)
+        self.wait.until(EC.presence_of_all_elements_located)
         print(self.driver.title)
         if self.driver.title == terms_of_use_title:
             self.passed('Terms of use page is loaded')
@@ -318,7 +317,8 @@ class Test(BaseTest):
         self.driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.TAB)
         self.driver.switch_to_window(self.get_window())
 
-        time.sleep(2)
+        time.sleep(5)
+        self.wait.until(EC.presence_of_all_elements_located)
         print(self.driver.title)
         if self.driver.title == privacy_policy_title:
             self.passed('privacy_policy_title is loaded')
