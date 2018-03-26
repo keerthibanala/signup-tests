@@ -38,6 +38,7 @@ class BaseTest(object):
         return field.get_attribute('value')
 
     def verify_label(self, expected_label):
+        time.sleep(2)
         self.wait.until(EC.presence_of_all_elements_located)
         if expected_label in self.driver.page_source:
             self.passed('Valid ' + expected_label + ' label')
@@ -45,6 +46,7 @@ class BaseTest(object):
             self.failed('Invalid ' + expected_label + ' label')
 
     def verify_error(self, error):
+        time.sleep(2)
         self.wait.until(EC.presence_of_all_elements_located)
         if error in self.driver.page_source:
             self.passed('Valid expected error:' + error)
@@ -52,6 +54,7 @@ class BaseTest(object):
             self.failed('Invalid expected error: ' + error)
 
     def verify_field_exists(self, field_id):
+        time.sleep(2)
         self.wait.until(EC.presence_of_all_elements_located)
         if self.driver.find_element_by_id(field_id):
             self.passed('Field:' + field_id + ' exists')
